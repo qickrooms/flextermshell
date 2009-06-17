@@ -78,13 +78,13 @@
  * {@link http://pear.php.net/package/PHP_Compat/}
  * {@link http://php.net/function.bcpowmod}
  */
-require_once 'PHP/Compat/Function/bcpowmod.php';
+require_once (dirname(dirname(__FILE__)).'/PHP/Compat/Function/bcpowmod.php');
 /**
  * Include PHP_Compat module array_fill since that function requires PHP4.2.0+:
  * {@link http://pear.php.net/package/PHP_Compat/}
  * {@link http://php.net/function.array_fill}
  */
-require_once 'PHP/Compat/Function/array_fill.php';
+require_once (dirname(dirname(__FILE__)).'/PHP/Compat/Function/array_fill.php');
 
 /**#@+
  * @access private

@@ -50,32 +50,32 @@
  *
  * Used to do Diffie-Hellman key exchange and DSA/RSA signature verification.
  */
-require_once('Math/BigInteger.php');
+require_once(dirname(dirname(__FILE__)).'/Math/BigInteger.php');
 
 /**
  * Include Crypt_Random
  */
-require_once('Crypt/Random.php');
+require_once(dirname(dirname(__FILE__)).'/Crypt/Random.php');
 
 /**
  * Include Crypt_Hash
  */
-require_once('Crypt/Hash.php');
+require_once(dirname(dirname(__FILE__)).'/Crypt/Hash.php');
 
 /**
  * Include Crypt_TripleDES
  */
-require_once('Crypt/TripleDES.php');
+require_once(dirname(dirname(__FILE__)).'/Crypt/TripleDES.php');
 
 /**
  * Include Crypt_RC4
  */
-require_once('Crypt/RC4.php');
+require_once(dirname(dirname(__FILE__)).'/Crypt/RC4.php');
 
 /**
  * Include Crypt_AES
  */
-require_once('Crypt/AES.php');
+require_once(dirname(dirname(__FILE__)).'/Crypt/AES.php');
 
 /**#@+
  * Execution Bitmap Masks
