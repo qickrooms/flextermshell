@@ -18,12 +18,7 @@ package com.godpaper.flexTermShell.bussiness.delegates
 		
 		public function tryConnectThenExec(arguments:SSH2VO,setBusyCursor:Boolean=true,showProgressBar:Boolean=true):void
 		{
-			var token:AsyncToken = service.getOperation(ServiceInfoList.OPERATION_TRY_CONNECT_THEN_EXEC).send( arguments.host,
-																											   arguments.port,
-																											   arguments.timeout,
-																											   arguments.username,
-																											   arguments.password,
-																											   arguments.command);
+			var token:AsyncToken = service.getOperation(ServiceInfoList.OPERATION_TRY_CONNECT_THEN_EXEC).send( arguments );
 																											   
 			token.addResponder(this);
 			

@@ -13,7 +13,7 @@
 			internal function onCreationComplete():void
 			{
 				VersionController.getInstance(this);
-				iLoginTitleWindow = PopUpManager.createPopUp(this,LoginTitleWindow,false,null);
+				iLoginTitleWindow = PopUpManager.createPopUp(this,LoginTitleWindow,true,null);
 				PopUpManager.centerPopUp(iLoginTitleWindow);
 			}
 		]]>
