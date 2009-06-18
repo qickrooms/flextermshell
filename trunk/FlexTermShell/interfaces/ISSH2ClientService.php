@@ -1,11 +1,12 @@
 <?php
-
+require_once (dirname(dirname(__FILE__)).'/dao/SSH2DAO.php');
 /**
  *
  */
-interface ISSH2ClientBase 
+interface ISSH2ClientService 
 {
-	function tryConnectThenExec($host, $port = 22, $timeout = 10, $username, $password,$command);
+	function tryConnectThenExec(SSH2DAO $ssh2dao);
+//	function tryConnectThenExec($host,$port,$timeout,$username,$password,$command);
 }
 
 ?>
