@@ -10,6 +10,6 @@ package com.godpaper.flexTermShell.vo
 		public var timeout:int;
 		public var username:String;
 		public var password:String;
-		public var command:String="ls";
+		public var command:String="pwd";
 	}
 }
