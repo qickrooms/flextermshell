@@ -3,6 +3,7 @@ package com.godpaper.flexTermShell.model
 	import com.adobe.cairngorm.CairngormError;
 	import com.adobe.cairngorm.CairngormMessageCodes;
 	import com.adobe.cairngorm.model.IModelLocator;
+	import com.godpaper.flexTermShell.vo.SSH2ResultVO;
 	import com.godpaper.flexTermShell.vo.SSH2VO;
 
 	public class ClientModelLocator implements IModelLocator
@@ -12,6 +13,7 @@ package com.godpaper.flexTermShell.model
 		
 		[Bindable]public var resultInvokedByPWDorCD:String = "";
 		[Bindable]public var resultInvokedByOthers:String = "";
+		[Bindable]public var resultAsMuchAsEver:SSH2ResultVO = new SSH2ResultVO();
 		
 		[Bindable]public var status:String = "DISCONNECT";
 		[Bindable]public var successCommands:Array = [];

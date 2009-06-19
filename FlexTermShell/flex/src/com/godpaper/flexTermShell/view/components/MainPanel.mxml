@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mx:Panel xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="400" height="300" backgroundColor="#000000" borderColor="#FFFFFF"
-	 status="{clientModel.status}" title="FlexTermShell" cornerRadius="0" color="#FFFFFF" borderStyle="solid" headerHeight="35" borderThickness="1" borderThicknessTop="0" borderThicknessRight="0" borderThicknessLeft="0" borderThicknessBottom="0" 
+	 status="{clientModel.status}" title="{'###ServerIdentification###: '+clientModel.resultAsMuchAsEver.ServerIdentification}" cornerRadius="0" color="#FFFFFF" borderStyle="solid" headerHeight="35" borderThickness="1" borderThicknessTop="0" borderThicknessRight="0" borderThicknessLeft="0" borderThicknessBottom="0" 
 	 xmlns:components="com.godpaper.flexTermShell.view.components.*">
-	<mx:titleIcon>@Embed(source='../../../../../assets/images/icon.png')</mx:titleIcon>
+	<!--<mx:titleIcon>@Embed(source='../../../../../assets/images/icon.png')</mx:titleIcon>-->
 	<mx:Script>
 		<![CDATA[
+			import mx.events.FlexEvent;
 			import com.godpaper.flexTermShell.vo.SSH2VO;
 			import com.godpaper.flexTermShell.events.TryConnectThenExecEvent;
 			import com.adobe.cairngorm.control.CairngormEventDispatcher;
@@ -27,17 +28,64 @@
 					mySSH2VO.username = clientModel.userLoginInfo.username;
 					mySSH2VO.password = clientModel.userLoginInfo.password;
 					mySSH2VO.command = lastCommand;
+					
 					CairngormEventDispatcher.getInstance().dispatchEvent(new TryConnectThenExecEvent(mySSH2VO));
 				}
 			}
+			
+			internal function onTextAreaCreationComplete():void
+			{
+				MyTextArea.addEventListener(FlexEvent.UPDATE_COMPLETE,function(event:FlexEvent):void
+				{
+					MyTextArea.verticalScrollPosition = MyTextArea.maxVerticalScrollPosition;
+				});
+				MyTextArea.addEventListener(FlexEvent.VALUE_COMMIT,function(event:FlexEvent):void
+				{
+					MyTextArea.setSelection(MyTextArea.length,MyTextArea.length);
+				});
+				MyTextArea.addEventListener(MouseEvent.DOUBLE_CLICK,function(event:MouseEvent):void
+				{
+					MyTextArea.text += "###CompressionAlgorithmsClient2Server###:\n"+clientModel.resultAsMuchAsEver.CompressionAlgorithmsClient2Server.toString();
+					MyTextArea.text +="\n";
+					MyTextArea.text += "###CompressionAlgorithmsServer2Client###:\n"+clientModel.resultAsMuchAsEver.CompressionAlgorithmsServer2Client.toString();	
+					MyTextArea.text +="\n";
+					MyTextArea.text += "###DebugInfo###:\n"+clientModel.resultAsMuchAsEver.DebugInfo.toString();
+					MyTextArea.text +="\n";
+					MyTextArea.text += "###EncryptionAlgorithmsClient2Server###:\n"+clientModel.resultAsMuchAsEver.EncryptionAlgorithmsClient2Server.toString();
+					MyTextArea.text +="\n";
+					MyTextArea.text += "###EncryptionAlgorithmsServer2Client###:\n"+clientModel.resultAsMuchAsEver.EncryptionAlgorithmsServer2Client.toString();
+					MyTextArea.text +="\n";
+					MyTextArea.text += "###KexAlgorithms###:\n"+clientModel.resultAsMuchAsEver.KexAlgorithms.toString();
+					MyTextArea.text +="\n";
+					MyTextArea.text += "###LanguagesClient2Server###:\n"+clientModel.resultAsMuchAsEver.LanguagesClient2Server.toString();
+					MyTextArea.text +="\n";
+					MyTextArea.text += "###LanguagesServer2Client###:\n"+clientModel.resultAsMuchAsEver.LanguagesServer2Client.toString();
+					MyTextArea.text +="\n";
+					MyTextArea.text += "###Log###:\n"+clientModel.resultAsMuchAsEver.Log.toString();
+					MyTextArea.text +="\n";
+					MyTextArea.text += "###MACAlgorithmsClient2Server###:\n"+clientModel.resultAsMuchAsEver.MACAlgorithmsClient2Server.toString();
+					MyTextArea.text +="\n";
+					MyTextArea.text += "###MACAlgorithmsServer2Client###:\n"+clientModel.resultAsMuchAsEver.MACAlgorithmsServer2Client.toString();
+					MyTextArea.text +="\n";
+					MyTextArea.text += "###ServerHostKeyAlgorithms###:\n"+clientModel.resultAsMuchAsEver.ServerHostKeyAlgorithms.toString();
+					MyTextArea.text +="\n";
+					MyTextArea.text += "###ServerIdentification###:\n"+clientModel.resultAsMuchAsEver.ServerIdentification.toString();
+					MyTextArea.text +="\n";
+//					MyTextArea.text += "ServerPublicHostKey:\n"+clientModel.resultAsMuchAsEver.ServerPublicHostKey.toString();?byte array can not displayed?
+					MyTextArea.text +="\n";
+					MyTextArea.text += "$ ";
+				});
+			}
+			
 		]]>
 	</mx:Script>
 	
-	<mx:HBox width="100%" height="20"  verticalAlign="middle" color="#CCCCCC" borderStyle="solid" horizontalAlign="center">
-		<mx:Text text="{'Current Working Directory:'+clientModel.resultInvokedByPWDorCD}"/>
+	<mx:HBox width="100%" height="20"  verticalAlign="middle" color="#CCCCCC" borderStyle="solid" horizontalAlign="left" borderSides="top,bottom" alpha="0.5">
+		<mx:Text text="{'###CWD###:'+clientModel.resultInvokedByPWDorCD}" fontStyle="italic"/>
 	</mx:HBox>
 	<mx:TextArea id="MyTextArea" width="100%" height="100%" borderColor="#FFFFFF" backgroundColor="#000000" 
-			text="$ " alpha="0.5" fontSize="12" x="0" y="20" keyUp="onKeyUp(event)"/>
+			text="$ " alpha="0.5" fontSize="12" x="0" y="20" keyUp="onKeyUp(event)"
+			creationComplete="onTextAreaCreationComplete()" doubleClickEnabled="true"/>
 			
 	<components:MainPanelHelper id="mainPanelHelper"/>		
 </mx:Panel>
