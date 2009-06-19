@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>FlexTermShell</name>
+	<name>FlexTermShellAir</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -10,16 +10,22 @@
 			<arguments>
 			</arguments>
 		</buildCommand>
+		<buildCommand>
+			<name>com.adobe.flexbuilder.apollo.apollobuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
 	</buildSpec>
 	<natures>
+		<nature>com.adobe.flexbuilder.apollo.apollonature</nature>
 		<nature>com.adobe.flexbuilder.project.flexnature</nature>
 		<nature>com.adobe.flexbuilder.project.actionscriptnature</nature>
 	</natures>
 	<linkedResources>
 		<link>
-			<name>bin-release</name>
+			<name>[source path] src</name>
 			<type>2</type>
-			<location>C:/wamp/www/weborb36/Services/FlexTermShell/air/released</location>
+			<location>C:/wamp/www/weborb36/Services/FlexTermShell/flex/src</location>
 		</link>
 	</linkedResources>
 </projectDescription>

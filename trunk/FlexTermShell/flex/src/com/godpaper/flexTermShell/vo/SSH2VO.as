@@ -11,5 +11,6 @@ package com.godpaper.flexTermShell.vo
 		public var username:String;
 		public var password:String;
 		public var command:String="pwd";
+		public var asMuchAsEver:Boolean;
 	}
 }

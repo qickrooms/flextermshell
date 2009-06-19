@@ -8,6 +8,7 @@ class SSH2DAO
 	public $username;
 	public $password;
 	public $command;
+	public $asMuchAsEver;
 }
 
 ?>

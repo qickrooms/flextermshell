@@ -16,15 +16,11 @@ package com.godpaper.flexTermShell.view.components
 			mainPanel.MyTextArea.text += value;
 //			mainPanel.MyTextArea.text += "\n";
 			mainPanel.MyTextArea.text += "$ ";
-			mainPanel.MyTextArea.selectionBeginIndex = mainPanel.MyTextArea.text.length;
-			mainPanel.MyTextArea.verticalScrollPosition = mainPanel.MyTextArea.maxVerticalScrollPosition;
-			
+		}
+		
+		public function textAreaSetFocus():void
+		{
 			mainPanel.MyTextArea.setFocus();
-			if(Application.application.stage.focus == null)
-			{
-				Application.application.stage.focus = this.view;
-				Application.application.focusManager.setFocus(mainPanel.MyTextArea);
-			}
 		}
 		
 		protected function get mainPanel():MainPanel
