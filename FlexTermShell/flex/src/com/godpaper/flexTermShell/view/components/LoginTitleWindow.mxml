@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml" label="connect"  
+	 color="#FFFFFF" borderColor="#FFFFFF" cornerRadius="0" 
+	 backgroundColor="#000000" borderStyle="solid" borderThickness="1" 
+	 title="SSH for the web?" status="Yup.Try it out." 
+	 xmlns:components="com.godpaper.flexTermShell.view.components.*"
+	 creationComplete="onCreationComplete(event)" >
+	<mx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+			import com.godpaper.flexTermShell.vo.SSH2VO;
+			import com.godpaper.flexTermShell.events.TryConnectThenExecEvent;
+			import com.adobe.cairngorm.control.CairngormEventDispatcher;
+			
+			private var MySSH2VO:SSH2VO = new SSH2VO();
+			
+			internal function onCreationComplete(event:FlexEvent):void
+			{
+			}
+			
+			internal function loginHandler():void
+			{
+				MySSH2VO.host = hostTI.text;
+				MySSH2VO.port = int(Number(portTI.text));
+				MySSH2VO.timeout = int(Number(timeoutTI.text));
+				MySSH2VO.username = usernameTI.text;
+				MySSH2VO.password = passwordTI.text;
+				MySSH2VO.asMuchAsEver = true;
+				
+				CairngormEventDispatcher.getInstance().dispatchEvent(new TryConnectThenExecEvent(MySSH2VO));
+			}
+			
+			internal function resetHandler():void
+			{
+				hostTI.text = "72.167.232.228";
+				portTI.text = "22";
+				timeoutTI.text = "10";
+				usernameTI.text = "godpaper";
+				passwordTI.text = "KiT7740321";
+			}
+			
+		]]>
+	</mx:Script>
+	<mx:HRule width="100%" height="1"/>
+	<mx:Form width="100%" height="100%" defaultButton="{loginButton}">
+		<mx:FormItem label="HOST:">
+			<mx:TextInput id="hostTI" text="72.167.232.228" color="#000000"/>
+		</mx:FormItem>
+		<mx:FormItem label="PORT:">
+			<mx:TextInput id="portTI" restrict="0-9" text="22" color="#000000"/>
+		</mx:FormItem>
+		<mx:FormItem label="TIMEOUT:">
+			<mx:TextInput id="timeoutTI" restrict="0-9" text="10" color="#000000"/>
+		</mx:FormItem>
+		<mx:FormItem label="USERNAME:">
+			<mx:TextInput id="usernameTI" text="godpaper" color="#000000"/>
+		</mx:FormItem>
+		<mx:FormItem label="PASSWORD:">
+			<mx:TextInput id="passwordTI" displayAsPassword="true" text="KiT7740321" color="#000000"/>
+		</mx:FormItem>
+	</mx:Form>
+	<mx:ControlBar horizontalAlign="center">
+		<mx:Button label="LOGIN" id="loginButton" click="loginHandler()" emphasized="true" cornerRadius="0" themeColor="#FFFFFF" fillAlphas="[1.0, 1.0]" fillColors="[#000000, #000000]"/>
+		<mx:Button label="RESET" cornerRadius="0" borderColor="#FFFFFF" fillAlphas="[1.0, 1.0]" fillColors="[#000000, #000000]" click="resetHandler()"/>
+	</mx:ControlBar>
+	
+	<components:LoginTitleWindowHelper id="loginTitleWindowHelper"/>
+</mx:TitleWindow>

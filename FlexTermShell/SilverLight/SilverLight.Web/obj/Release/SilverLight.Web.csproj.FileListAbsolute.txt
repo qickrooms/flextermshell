@@ -1,0 +1,14 @@
+C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight.Web\bin\SilverLight.Web.dll
+C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight.Web\bin\SilverLight.Web.pdb
+C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight.Web\bin\System.Web.Silverlight.dll
+C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight.Web\bin\de\System.Web.Silverlight.resources.dll
+C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight.Web\bin\es\System.Web.Silverlight.resources.dll
+C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight.Web\bin\fr\System.Web.Silverlight.resources.dll
+C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight.Web\bin\it\System.Web.Silverlight.resources.dll
+C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight.Web\bin\ja\System.Web.Silverlight.resources.dll
+C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight.Web\bin\ko\System.Web.Silverlight.resources.dll
+C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight.Web\bin\zh-Hans\System.Web.Silverlight.resources.dll
+C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight.Web\bin\zh-Hant\System.Web.Silverlight.resources.dll
+C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight.Web\obj\Release\ResolveAssemblyReference.cache
+C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight.Web\obj\Release\SilverLight.Web.dll
+C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight.Web\obj\Release\SilverLight.Web.pdb

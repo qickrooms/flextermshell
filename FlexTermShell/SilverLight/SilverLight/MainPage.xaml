@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="SilverLight.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    Width="Auto" Height="Auto">
+    <Grid x:Name="LayoutRoot" Background="White">
+        <StackPanel Width="Auto" Height="Auto" Orientation="Vertical" Background="#FF000000">
+            <Border BorderBrush="White" BorderThickness="1">
+                <StackPanel Width="Auto" Height="Auto" Orientation="Horizontal" >            
+                    <TextBlock Text="###ServerIdentification###:" Foreground="#FFFFFFFF"/>
+                    <TextBlock x:Name="siTB" Text="SilverLightTermShell" Foreground="#FFFFFFFF"/>
+                </StackPanel>
+            </Border>
+            
+            <Border BorderBrush="White" BorderThickness="1" Margin="0,-1,0,-1">
+            <StackPanel Width="400" Height="Auto" Orientation="Horizontal" Background="#FF000000">
+                <TextBlock Text="###CWD###:" Foreground="#FFFFFFFF"/>
+                <TextBlock x:Name="cwdTB" Text="cwd" Foreground="#FFFFFFFF"/>
+            </StackPanel> 
+            </Border>
+                       
+            <TextBox x:Name="ResultTB" Height="Auto" Background="#FFFFFFFF" KeyUp="ResultTB_KeyUp" Foreground="#FF000000" Cursor="IBeam" SelectionBackground="#FFFFFFFF" SelectionForeground="#FF000000" >
+            	<TextBox.BorderBrush>
+            		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            			<GradientStop Color="#FFFFFFFF"/>
+            			<GradientStop Color="#FFFFFFFF" Offset="0"/>
+            			<GradientStop Color="#FFFFFFFF" Offset="1"/>
+            		</LinearGradientBrush>
+            	</TextBox.BorderBrush>
+            </TextBox>
+        </StackPanel>
+    </Grid>
+</UserControl>

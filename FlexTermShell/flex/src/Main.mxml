@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute"
+	xmlns:view="com.godpaper.flexTermShell.view.components.*" 
+	themeColor="#000000"
+	creationComplete="onCreationComplete()" xmlns:controller="com.godpaper.flexTermShell.controller.*" xmlns:bussiness="com.godpaper.flexTermShell.bussiness.*">
+	<mx:Script>
+		<![CDATA[
+			import com.godpaper.flexTermShell.view.components.LoginTitleWindow;
+			import mx.managers.PopUpManager;
+			import mx.core.IFlexDisplayObject;
+			import VersionControl.VersionController;
+			private var iLoginTitleWindow:IFlexDisplayObject;
+			internal function onCreationComplete():void
+			{
+				VersionController.getInstance(this);
+				iLoginTitleWindow = PopUpManager.createPopUp(this,LoginTitleWindow,true,null);
+				PopUpManager.centerPopUp(iLoginTitleWindow);
+			}
+		]]>
+	</mx:Script>
+	<view:MainPanel width="100%" height="100%" verticalCenter="0" horizontalCenter="0">
+	</view:MainPanel>
+	
+	<controller:ClientController id="clientController"/>
+	
+	<bussiness:Services id="myServices"/>
+</mx:Application>
