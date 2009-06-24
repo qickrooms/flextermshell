@@ -98,7 +98,7 @@ package com.godpaper.flexTermShell.commands
 				
 			}else
 			{
-				Alert.show(data.result);
+				Alert.show(data.toString());
 			}
 		}
 		

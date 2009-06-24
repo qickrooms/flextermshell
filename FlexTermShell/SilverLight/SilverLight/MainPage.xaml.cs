@@ -19,41 +19,41 @@ namespace SilverLight
     public partial class MainPage : UserControl
     {
         public SilverLight.dao.SSH2DAO MySSH2DAO;
+        public SilverLight.dao.SSH2ResultDAO MySSH2ResultDAO;
         private WeborbClient weborbClient;
-        public FlexTermShell.src.ISSH2ClientService proxy;
-        //private Weborb.Examples.IBasicService proxy2;
-        private FlexTermShell.src.IBasicService proxy2;   
-
+        public FlexTermShell.src.ISSH2ClientService proxy;        
+        
         public MainPage()
         {
             InitializeComponent();
-            weborbClient = new WeborbClient("http://localhost/weborb36/weborb.php", this);
+            weborbClient = new WeborbClient("http://www.lookbackon.com/weborb/weborb.php", this);
             proxy = weborbClient.Bind<FlexTermShell.src.ISSH2ClientService>();
-            //proxy2 = weborbClient.Bind<Weborb.Examples.IBasicService>();
-            proxy2 = weborbClient.Bind<FlexTermShell.src.IBasicService>();
+            
 
-            MySSH2DAO = new SilverLight.dao.SSH2DAO();           
+            MySSH2DAO = new SilverLight.dao.SSH2DAO();
+            MySSH2ResultDAO = new SilverLight.dao.SSH2ResultDAO();
 
             //PopUpLoginTitleWindow;
             SilverLight.util.Dialog dlg = new MyDialog();
             dlg.Show(SilverLight.util.DialogStyle.Modal);
-            dlg.mainPage = this;           
-            
+            dlg.mainPage = this;
+
         }
 
         private void ResultTB_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
-                MySSH2DAO.command = ResultTB.Text.Substring(ResultTB.Text.LastIndexOf(" "), (ResultTB.Text.Length - ResultTB.Text.LastIndexOf("$ ")-1));
-                Debug.WriteLine(MySSH2DAO.command);
+                MySSH2DAO.command = ResultTB.Text.Substring(ResultTB.Text.LastIndexOf(" "), (ResultTB.Text.Length - ResultTB.Text.LastIndexOf("$ ") - 1));
+                //Debug.WriteLine(MySSH2DAO.command);
                 AsyncToken<SilverLight.dao.SSH2ResultDAO> result = proxy.tryConnectThenExec(MySSH2DAO);
-                //AsyncToken<int> result = proxy2.Calculate(3, 1, 7);
+                
                 result.ErrorListener += new ErrorHandler(result_ErrorListener);
                 result.ResultListener += new ResponseHandler<SilverLight.dao.SSH2ResultDAO>(result_ResultListener);
                 App.Current.RootVisual.Effect = new BlurEffect();
-                this.Cursor = Cursors.Wait;
-            }           
+
+                this.Cursor = Cursors.Wait;                
+            }
         }
 
         void result_ResultListener(SilverLight.dao.SSH2ResultDAO response)
@@ -65,21 +65,24 @@ namespace SilverLight
                     siTB.Text = response.asMuchAsEver.ServerIdentification;
                     if (MySSH2DAO.command.IndexOf("pwd") != -1 || MySSH2DAO.command.IndexOf("cd") != -1)
                     {
-                        cwdTB.Text = response.execResult;                       
+                        cwdTB.Text = response.execResult;
                     }
                 }
-
-                ResultTB.Text = response.execResult.ToString();
+                
+                ResultTB.Text += "\n";
+                ResultTB.Text += response.execResult.ToString();
                 ResultTB.Text += "\n";
                 ResultTB.Text += "$ ";
-                
-                this.Cursor = Cursors.Arrow;
+                ResultTB.Focus();
+                ResultTB.SelectionStart = ResultTB.Text.Length;                                
+
+                this.Cursor = Cursors.Arrow;                
                 App.Current.RootVisual.Effect = null;
             }
             catch (Exception e)
             {
                 ResultTB.Text = e.ToString();
-            }           
+            }
         }
 
         void result_ErrorListener(Fault fault)
@@ -87,11 +90,51 @@ namespace SilverLight
             throw new NotImplementedException();
         }
 
-        
-        
+        private void ResultTB_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            
+            // add your code
+            ResultTB.Text += "\n";
+            ResultTB.Text += "###CompressionAlgorithmsClient2Server###:\n" + MySSH2ResultDAO.asMuchAsEver.CompressionAlgorithmsClient2Server;
+            ResultTB.Text += "\n";
+            ResultTB.Text += "###CompressionAlgorithmsServer2Client###:\n" + MySSH2ResultDAO.asMuchAsEver.CompressionAlgorithmsServer2Client;
+            ResultTB.Text += "\n";
+            ResultTB.Text += "###DebugInfo###:\n" + MySSH2ResultDAO.asMuchAsEver.DebugInfo;
+            ResultTB.Text += "\n";
+            ResultTB.Text += "###EncryptionAlgorithmsClient2Server###:\n" + MySSH2ResultDAO.asMuchAsEver.EncryptionAlgorithmsClient2Server;
+            ResultTB.Text += "\n";
+            ResultTB.Text += "###EncryptionAlgorithmsServer2Client###:\n" + MySSH2ResultDAO.asMuchAsEver.EncryptionAlgorithmsServer2Client;
+            ResultTB.Text += "\n";
+            ResultTB.Text += "###KexAlgorithms###:\n" + MySSH2ResultDAO.asMuchAsEver.KexAlgorithms;
+            ResultTB.Text += "\n";
+            ResultTB.Text += "###LanguagesClient2Server###:\n" + MySSH2ResultDAO.asMuchAsEver.LanguagesClient2Server;
+            ResultTB.Text += "\n";
+            ResultTB.Text += "###LanguagesServer2Client###:\n" + MySSH2ResultDAO.asMuchAsEver.LanguagesServer2Client;
+            ResultTB.Text += "\n";
+            ResultTB.Text += "###Log###:\n" + MySSH2ResultDAO.asMuchAsEver.Log;
+            ResultTB.Text += "\n";
+            ResultTB.Text += "###MACAlgorithmsClient2Server###:\n" + MySSH2ResultDAO.asMuchAsEver.MACAlgorithmsClient2Server;
+            ResultTB.Text += "\n";
+            ResultTB.Text += "###MACAlgorithmsServer2Client###:\n" + MySSH2ResultDAO.asMuchAsEver.MACAlgorithmsServer2Client;
+            ResultTB.Text += "\n";
+            ResultTB.Text += "###ServerHostKeyAlgorithms###:\n" + MySSH2ResultDAO.asMuchAsEver.ServerHostKeyAlgorithms;
+            ResultTB.Text += "\n";
+            ResultTB.Text += "###ServerIdentification###:\n" + MySSH2ResultDAO.asMuchAsEver.ServerIdentification;
+            ResultTB.Text += "\n";
+            //				ResultTB.Text += "ServerPublicHostKey:\n"+MySSH2ResultDAO.asMuchAsEver.ServerPublicHostKey.toString();//?byte array can not displayed?
+            ResultTB.Text += "\n";
+            ResultTB.Text += "$ ";
+            ResultTB.Focus();
+            ResultTB.SelectionStart = ResultTB.Text.Length;
+               
+            
+        }
+
+
+
     }
 
-    public class MyDialog:SilverLight.util.Dialog
+    public class MyDialog : SilverLight.util.Dialog
     {
         private LoginTitleWindow ltw;
         protected override FrameworkElement GetContent()
@@ -99,21 +142,21 @@ namespace SilverLight
 
             // You could just use XamlReader to do everything except the event hookup.
 
-            ltw = new LoginTitleWindow() {};
+            ltw = new LoginTitleWindow() { };
             //ltw.OKButton.Click += (sender, args) => { Close(); };
             ltw.OKButton.Click += new RoutedEventHandler(LoginBtn_Click);
             ltw.CancelButton.Click += new RoutedEventHandler(CancelButton_Click);
-            return ltw;         
+            return ltw;
 
         }
 
         void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            ltw.hostTB.Text = "";
+            ltw.hostTB.Text = "lookbackon.com";
             ltw.portTB.Text = "22";
             ltw.timeoutTB.Text = "10";
-            ltw.usernameTB.Text = "";
-            ltw.passwordBox.Password = "";
+            ltw.usernameTB.Text = "godpaper";
+            ltw.passwordBox.Password = "KiT7740321";
         }
 
         private void LoginBtn_Click(object sender, RoutedEventArgs e)
@@ -122,17 +165,20 @@ namespace SilverLight
             mainPage.MySSH2DAO.port = int.Parse(ltw.portTB.Text);
             mainPage.MySSH2DAO.timeout = int.Parse(ltw.timeoutTB.Text);
             mainPage.MySSH2DAO.username = ltw.usernameTB.Text;
-            mainPage.MySSH2DAO.password = ltw.passwordBox.Password;            
+            mainPage.MySSH2DAO.password = ltw.passwordBox.Password;
 
             AsyncToken<SilverLight.dao.SSH2ResultDAO> result = mainPage.proxy.tryConnectThenExec(mainPage.MySSH2DAO);
-            //AsyncToken<int> result = proxy2.Calculate(3, 1, 7);
+            
             result.ErrorListener += new ErrorHandler(result_ErrorListener);
             result.ResultListener += new ResponseHandler<SilverLight.dao.SSH2ResultDAO>(result_ResultListener);
-            //result.ResultListener += new ResponseHandler<int>(result_ResultListener);
+            
             Close();
-            mainPage.Cursor= Cursors.Wait;
+            
+            mainPage.Cursor = Cursors.Wait;
         }
 
+        
+        
         void result_ResultListener(SilverLight.dao.SSH2ResultDAO response)
         {
             try
@@ -143,14 +189,17 @@ namespace SilverLight
                     if (mainPage.MySSH2DAO.command.IndexOf("pwd") != -1 || mainPage.MySSH2DAO.command.IndexOf("cd") != -1)
                     {
                         mainPage.cwdTB.Text = response.execResult;
+                        mainPage.MySSH2ResultDAO.asMuchAsEver = response.asMuchAsEver;
                     }                   
                 }
-                App.Current.RootVisual.Effect = null;
+                mainPage.MySSH2ResultDAO.execResult = response.execResult;
+                
+                mainPage.ResultTB.Text += "\n";
                 mainPage.ResultTB.Text = response.execResult.ToString();
                 mainPage.ResultTB.Text += "\n";
                 mainPage.ResultTB.Text += "$ ";
                 mainPage.ResultTB.Focus();
-                //mainPage.ResultTB.SelectionStart = mainPage.ResultTB.Text.Length - 1;
+                mainPage.ResultTB.SelectionStart = mainPage.ResultTB.Text.Length;
                 //mainPage.ResultTB.Select(mainPage.ResultTB.Text.LastIndexOf("$ ")+2, 1);
             }
             catch (Exception e)
@@ -158,12 +207,13 @@ namespace SilverLight
                 mainPage.ResultTB.Text = e.ToString();
                 mainPage.ResultTB.Text += "$ ";
             }
-            mainPage.Cursor = Cursors.Arrow;
+            App.Current.RootVisual.Effect = null;
+            mainPage.Cursor = Cursors.Arrow;            
         }
 
         void result_ErrorListener(Fault fault)
         {
-            throw new NotImplementedException();            
+            throw new NotImplementedException();
         }
 
 
@@ -175,5 +225,5 @@ namespace SilverLight
         }
 
     }
-    
+
 }

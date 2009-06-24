@@ -2,7 +2,10 @@
 <mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute"
 	xmlns:view="com.godpaper.flexTermShell.view.components.*" 
 	themeColor="#000000"
-	creationComplete="onCreationComplete()" xmlns:controller="com.godpaper.flexTermShell.controller.*" xmlns:bussiness="com.godpaper.flexTermShell.bussiness.*">
+	creationComplete="onCreationComplete()" 
+	xmlns:controller="com.godpaper.flexTermShell.controller.*" 
+	xmlns:bussiness="com.godpaper.flexTermShell.bussiness.*"
+	usePreloader="true" preloader="com.godpaper.flexTermShell.util.Preloader">
 	<mx:Script>
 		<![CDATA[
 			import com.godpaper.flexTermShell.view.components.LoginTitleWindow;

@@ -32,7 +32,7 @@
 			
 			internal function resetHandler():void
 			{
-				hostTI.text = "72.167.232.228";
+				hostTI.text = "lookbackon.com";
 				portTI.text = "22";
 				timeoutTI.text = "10";
 				usernameTI.text = "godpaper";
@@ -44,7 +44,7 @@
 	<mx:HRule width="100%" height="1"/>
 	<mx:Form width="100%" height="100%" defaultButton="{loginButton}">
 		<mx:FormItem label="HOST:">
-			<mx:TextInput id="hostTI" text="72.167.232.228" color="#000000"/>
+			<mx:TextInput id="hostTI" text="lookbackon.com" color="#000000"/>
 		</mx:FormItem>
 		<mx:FormItem label="PORT:">
 			<mx:TextInput id="portTI" restrict="0-9" text="22" color="#000000"/>

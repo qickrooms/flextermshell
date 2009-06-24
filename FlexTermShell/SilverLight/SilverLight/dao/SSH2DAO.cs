@@ -14,7 +14,7 @@ namespace SilverLight.dao
 {
     public class SSH2DAO
     {
-        private string _host = "72.167.232.228";
+        private string _host = "lookbackon.com";
         public string host { get { return _host; } set { _host = value; } }
 
         private int _port = 22;
