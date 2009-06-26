@@ -2,7 +2,7 @@
 
 = Introduction =
 
-Web based using flex(swf) interactive with weborb(php) to realize simple ssh client.
+Web based using flex(swf)silverlight(xap) interactive with weborb(php) to realize simple ssh client.
 
 
 = Details =
