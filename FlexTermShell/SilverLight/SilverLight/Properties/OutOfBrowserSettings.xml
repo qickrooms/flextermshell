@@ -1,0 +1,12 @@
+<OutOfBrowserSettings ShortName="SilverLightTermShell Application" EnableGPUAcceleration="True" ShowInstallMenuItem="True">
+  <OutOfBrowserSettings.Blurb>SilverLightTermShell Application on your desktop; at home, at work or on the go.</OutOfBrowserSettings.Blurb>
+  <OutOfBrowserSettings.WindowSettings>
+    <WindowSettings Title="SilverLightTermShell Application" Height="300" Width="400" />
+  </OutOfBrowserSettings.WindowSettings>
+  <OutOfBrowserSettings.Icons>
+    <Icon Size="16,16">icon16.png</Icon>
+    <Icon Size="32,32">icon32.png</Icon>
+    <Icon Size="48,48">icon48.png</Icon>
+    <Icon Size="128,128">icon128.png</Icon>
+  </OutOfBrowserSettings.Icons>
+</OutOfBrowserSettings>

@@ -10,14 +10,15 @@
             </RowDefinition>
             <RowDefinition Height="*">
             </RowDefinition>
-        </Grid.RowDefinitions>
+        </Grid.RowDefinitions>        
         
         
             <Border BorderBrush="White" BorderThickness="1" Grid.Row="0">
                 <StackPanel Height="Auto" Orientation="Horizontal" Background="#FF000000" HorizontalAlignment="Left" VerticalAlignment="Center">            
                     <TextBlock Text="###ServerIdentification###:" Foreground="#FFFFFFFF"/>
                     <TextBlock x:Name="siTB" Text="SilverLightTermShell" Foreground="#FFFFFFFF"/>
-                </StackPanel>
+                <TextBlock x:Name="statusTB" Text="UNCONNECT" Foreground="Gray" TextAlignment="Right"/>
+            </StackPanel>
             </Border>
             
             <Border BorderBrush="White" BorderThickness="1" Margin="0,-1,0,-1" Grid.Row="1">

@@ -12,9 +12,7 @@ C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight\obj\Release\
 C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight\obj\Release\SilverLight.pdb
 C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight\obj\Release\XapCacheFile.xml
 C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight\Bin\Release\System.ComponentModel.DataAnnotations.dll
-C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight\Bin\Release\System.ComponentModel.dll
 C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight\Bin\Release\System.Runtime.Serialization.dll
-C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight\Bin\Release\System.Windows.Controls.Data.DataForm.dll
 C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight\Bin\Release\System.Windows.Controls.dll
 C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight\Bin\Release\System.ComponentModel.DataAnnotations.xml
 C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight\Bin\Release\System.Windows.Controls.Data.DataForm.xml
@@ -53,3 +51,17 @@ C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight\Bin\Release\
 C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight\Bin\Release\zh-Hans\System.Windows.Controls.resources.dll
 C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight\Bin\Release\zh-Hant\System.Windows.Controls.resources.dll
 C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight\obj\Release\LoginTitleWindow.g.cs
+C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight\Bin\Release\System.Windows.Controls.Data.Input.dll
+C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight\Bin\Release\System.Windows.Controls.Data.Input.xml
+C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight\Bin\Release\de\System.Windows.Controls.Data.Input.resources.dll
+C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight\Bin\Release\es\System.Windows.Controls.Data.Input.resources.dll
+C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight\Bin\Release\fr\System.Windows.Controls.Data.Input.resources.dll
+C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight\Bin\Release\it\System.Windows.Controls.Data.Input.resources.dll
+C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight\Bin\Release\ja\System.Windows.Controls.Data.Input.resources.dll
+C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight\Bin\Release\ko\System.Windows.Controls.Data.Input.resources.dll
+C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight\Bin\Release\zh-Hans\System.Windows.Controls.Data.Input.resources.dll
+C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight\Bin\Release\zh-Hant\System.Windows.Controls.Data.Input.resources.dll
+C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight\Bin\Release\icon128.png
+C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight\Bin\Release\icon16.png
+C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight\Bin\Release\icon32.png
+C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight\Bin\Release\icon48.png

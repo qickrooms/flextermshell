@@ -13,6 +13,7 @@ using Weborb.Client;
 using System.Collections;
 using System.Diagnostics;
 using System.Windows.Media.Effects;
+using System.Windows.Browser;
 
 namespace SilverLight
 {
@@ -183,24 +184,34 @@ namespace SilverLight
         {
             try
             {
-                if (mainPage.MySSH2DAO.asMuchAsEver)
+                if (response.execResult != "Failure")
                 {
-                    mainPage.siTB.Text = response.asMuchAsEver.ServerIdentification;
-                    if (mainPage.MySSH2DAO.command.IndexOf("pwd") != -1 || mainPage.MySSH2DAO.command.IndexOf("cd") != -1)
+                    if (mainPage.MySSH2DAO.asMuchAsEver)
                     {
-                        mainPage.cwdTB.Text = response.execResult;
-                        mainPage.MySSH2ResultDAO.asMuchAsEver = response.asMuchAsEver;
-                    }                   
+                        mainPage.siTB.Text = response.asMuchAsEver.ServerIdentification;
+                        if (mainPage.MySSH2DAO.command.IndexOf("pwd") != -1 || mainPage.MySSH2DAO.command.IndexOf("cd") != -1)
+                        {
+                            mainPage.cwdTB.Text = response.execResult;
+                            mainPage.MySSH2ResultDAO.asMuchAsEver = response.asMuchAsEver;
+                        }
+                    }
+                    mainPage.MySSH2ResultDAO.execResult = response.execResult;
+
+                    mainPage.statusTB.Text = "CONNECTED";
+
+                    mainPage.ResultTB.Text += "\n";
+                    mainPage.ResultTB.Text = response.execResult.ToString();
+                    mainPage.ResultTB.Text += "\n";
+                    mainPage.ResultTB.Text += "$ ";
+                    mainPage.ResultTB.Focus();
+                    mainPage.ResultTB.SelectionStart = mainPage.ResultTB.Text.Length;
+                    //mainPage.ResultTB.Select(mainPage.ResultTB.Text.LastIndexOf("$ ")+2, 1);
                 }
-                mainPage.MySSH2ResultDAO.execResult = response.execResult;
+                else
+                {
+                    HtmlPage.Window.Invoke("Login Failure!",response);
+                }
                 
-                mainPage.ResultTB.Text += "\n";
-                mainPage.ResultTB.Text = response.execResult.ToString();
-                mainPage.ResultTB.Text += "\n";
-                mainPage.ResultTB.Text += "$ ";
-                mainPage.ResultTB.Focus();
-                mainPage.ResultTB.SelectionStart = mainPage.ResultTB.Text.Length;
-                //mainPage.ResultTB.Select(mainPage.ResultTB.Text.LastIndexOf("$ ")+2, 1);
             }
             catch (Exception e)
             {

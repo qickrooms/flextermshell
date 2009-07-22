@@ -1,6 +1,5 @@
 C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight.Web\bin\SilverLight.Web.dll
 C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight.Web\bin\SilverLight.Web.pdb
-C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight.Web\bin\System.Web.Silverlight.dll
 C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight.Web\bin\de\System.Web.Silverlight.resources.dll
 C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight.Web\bin\es\System.Web.Silverlight.resources.dll
 C:\wamp\www\weborb36\Services\FlexTermShell\SilverLight\SilverLight.Web\bin\fr\System.Web.Silverlight.resources.dll
